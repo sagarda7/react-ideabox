@@ -1,6 +1,6 @@
 {
-  "homepage": "http://sagarda7.github.io/idea-box",
-  "name": "idea-box",
+  "homepage": "https://sagarda7.github.io/react-ideabox",
+  "name": "react-ideabox",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
