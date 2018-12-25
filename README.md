@@ -8,4 +8,5 @@ IdeaBox is simple todo like app written in React, Redux to demeonstrate followin
 * ##### redux for state management
 * ##### redux-form 
 
-![Screenshot](https://octodex.github.com/images/yaktocat.png)
+![Screenshot](https://github.com/sagarda7/React-IdeaBox/blob/master/screenshots/list.png)
+![Screenshot](https://github.com/sagarda7/React-IdeaBox/blob/master/screenshots/create.png)
