@@ -1,4 +1,4 @@
-IdeaBox is simple todo like app written in React, Redux to demeonstrate following tech stacks
+IdeaBox is simple todo like app written in React, Redux to demeonstrate following tech stacks. See [Demo](https://sagarda7.github.io/react-ideabox)
 
 
 ## This project uses
