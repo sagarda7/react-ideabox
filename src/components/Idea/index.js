@@ -19,7 +19,7 @@ class Idea extends Component {
         <Card inverse color="info" style={{margin:'10px', maxWidth:"15rem", minWidth:"15rem"}}>
             <CardHeader>
               {this.props.title}
-              <img src={close} onClick={() => this.props.deleteIdea(this.props.key)} style={{width:15, height:15, float: 'right', cursor:'pointer'}}></img>
+              <img alt="close button" src={close} onClick={() => this.props.deleteIdea(this.props.key)} style={{width:15, height:15, float: 'right', cursor:'pointer'}}></img>
             </CardHeader>
             <CardBody>
               {/* <CardTitle>{this.props.title}</CardTitle> */}

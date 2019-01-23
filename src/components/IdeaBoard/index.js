@@ -25,7 +25,7 @@ class IdeaBoard extends Component {
           { this.props.ideas.length===0 && 
             <Row className="create-new-if-zero">
               <Col md="12">
-                There are no Ideas, you can <Button onClick={this.props.handleModal}  color="link" size="md">Create New</Button>
+                There are no Ideas, you can <Button onClick={() => this.props.handleModal(true)}  color="link" size="md">Create New</Button>
               </Col>
             </Row> 
           }

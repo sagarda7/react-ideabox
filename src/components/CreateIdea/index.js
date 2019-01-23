@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, reset } from 'redux-form'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 import {handleCreateIdeaModalAction} from './../../store/actions/ModalAction'
+import {createIdeaAction} from './../../store/actions/IdeaAction'
 import './style.css'
 import {
   Button, Modal, ModalHeader, ModalBody, Form,
@@ -35,13 +37,35 @@ const renderFieldInput = ({
 
 class CreateIdea extends Component {
 
+  constructor(props) {
+    super(props)
+    // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this);
+    this.props.createIdea(this.props.createIdeaForm.CreateIdea.values)
+    this.props.handleModal(false)
+    this.props.resetIdeaForm()
+  }
+
+  closeModal () {
+    console.log(this)
+    this.props.handleModal(false)
+    this.props.resetIdeaForm()
+  }
+
+  componentDidMount () {
+    console.log(this+" is create component")
+  }
   render() {
     return (
       <div>
         <Modal isOpen={this.props.createIdeaModal.show}>
           <ModalHeader>Create Idea</ModalHeader>
           <ModalBody>
-            <Form onSubmit={this.props.handleSubmit} className="form" name="formIdea">
+            <Form onSubmit={this.handleSubmit} className="form" name="formIdea">
               <Col>
               <Field
                       name="title"
@@ -63,7 +87,7 @@ class CreateIdea extends Component {
               <Col>
                 <FormGroup>
                   <Button color="primary" type="submit">Create</Button>{' '}
-                  <Button color="secondary" onClick={() => this.props.handleModal(false)}>Cancel</Button>
+                  <Button color="secondary" onClick={() => this.closeModal()}>Cancel</Button>
                 </FormGroup>
               </Col>
             </Form>
@@ -88,7 +112,9 @@ const mapStateToProps = (state)  => {
 
 const mapDispatchToProps = (dispatch)  => {
   return {
-    handleModal: (show) => dispatch(handleCreateIdeaModalAction(show))
+    handleModal: (show) => dispatch(handleCreateIdeaModalAction(show)),
+    createIdea: (data) => dispatch(createIdeaAction(data)),
+    resetIdeaForm: () => dispatch(reset('CreateIdea'))
   }
 }
 
@@ -96,7 +122,7 @@ const mapDispatchToProps = (dispatch)  => {
 CreateIdea = connect(
   mapStateToProps,
   mapDispatchToProps
-)(CreateIdea);
+)(CreateIdea)
 
 
 export default reduxForm({
